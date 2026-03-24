@@ -3,86 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify </title>
+    <title>Spotify</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <ul>
-            <li class=" margin logo"><img src="images/logo.png" alt="spotify">Spotify</li>
-            <li class="margin">Home</li>
-            <li class="margin">About</li>
-            <li class="margin"><a href="trending.html">Trending</a></li>
-            <li ><input type="text" placeholder="Search Spotify"></li>
-            <li ><button>Search</button></li>
-        </ul>
+        <div class="nav-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="spotify">
+                <span>Spotify</span>
+            </div>
+            <ul class="nav-links">
+                <li>Home</li>
+                <li>About</li>
+                <li><a href="trending.html">Trending</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search songs, artists...">
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <h1>Best Of NCS - No Copy Right Songs</h1>
-        <div class="div">
-            <img src="covers/1.jpg" alt="song1">
-            <h1 >Warriyo - Mortals [NCS Release]</h1>
-            <span>5:34 <i id="0" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/2.jpg" alt="song 2">
-            <h1>Hass Hass - Diljit Dosanjh</h1>
-            <span>5:34 <i id="1" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/3.jpg" alt="song 3">
-            <h1>DEAF KEV - Invincible [NCS Release] </h1>
-            <span>5:34 <i id="2" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/4.jpg" alt="song 4">
-            <h1>Ay Balam - Uzeyir Mehdizade & Sevcan Dalkiran </h1>
-            <span>5:34 <i id="3" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/5.jpg" alt="song 5">
-            <h1>G.O.A.T - feat Diljit Dosanjh </h1>
-            <span>5:34 <i id="4" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/6.jpg" alt="song 6">
-            <h1>Millionaire - Honey Singh</h1>
-            <span>5:34 <i id="5" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/7.jpg" alt="song 7">
-            <h1>One Love - Shubh</h1>
-            <span>5:34 <i id="6" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/8.jpg" alt="song 8">
-            <h1>Bhula Dena Salam-e-Ishq</h1>
-            <span>5:34 <i id="7" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/9.jpg" alt="song 9">
-            <h1>Tumhari Kasam - Salam-e-Ishq</h1>
-            <span>5:34 <i id="8" class="fa-solid fa-circle-play fa-lg btn"></i></span>
-        </div>
-        <div class="div">
-            <img src="covers/10.jpg" alt="song 10">
-            <h1>Na Jana Salam-e-Ishq</h1>
-            <span>5:34 <i id="9" class="fa-solid fa-circle-play fa-lg btn"></i></span>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div class="now-playing-card" id="now-playing-card">
+                <div class="np-cover-wrap">
+                    <img id="np-cover" src="covers/1.jpg" alt="cover">
+                    <div class="np-blur"></div>
+                </div>
+                <div class="np-info">
+                    <p class="np-label">NOW PLAYING</p>
+                    <h2 id="np-title">Select a song</h2>
+                    <div class="np-bars" id="gif">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="volume-wrap">
+                <i class="fa-solid fa-volume-low"></i>
+                <input type="range" id="volume-bar" min="0" max="100" value="80">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <div class="time-display">
+                <span id="current-time">0:00</span>
+                <span id="total-time">0:00</span>
+            </div>
+        </aside>
+
+        <div class="container">
+            <div class="container-header">
+                <h1>Best Of NCS</h1>
+                <p>No Copyright Songs · 10 tracks</p>
+            </div>
+            <div class="song-list">
+                <div class="div" data-index="0">
+                    <span class="track-num">01</span>
+                    <img src="covers/1.jpg" alt="song1">
+                    <div class="track-info">
+                        <h3>Warriyo - Mortals</h3>
+                        <p>NCS Release</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="0" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="1">
+                    <span class="track-num">02</span>
+                    <img src="covers/2.jpg" alt="song 2">
+                    <div class="track-info">
+                        <h3>Cielo</h3>
+                        <p>Huma Huma</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="1" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="2">
+                    <span class="track-num">03</span>
+                    <img src="covers/3.jpg" alt="song 3">
+                    <div class="track-info">
+                        <h3>DEAF KEV - Invincible</h3>
+                        <p>NCS Release</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="2" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="3">
+                    <span class="track-num">04</span>
+                    <img src="covers/4.jpg" alt="song 4">
+                    <div class="track-info">
+                        <h3>Different Heaven & EHIDE</h3>
+                        <p>My Heart</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="3" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="4">
+                    <span class="track-num">05</span>
+                    <img src="covers/5.jpg" alt="song 5">
+                    <div class="track-info">
+                        <h3>Janji - Heroes Tonight</h3>
+                        <p>feat. Johnning</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="4" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="5">
+                    <span class="track-num">06</span>
+                    <img src="covers/6.jpg" alt="song 6">
+                    <div class="track-info">
+                        <h3>Rabba</h3>
+                        <p>Salam-e-Ishq</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="5" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="6">
+                    <span class="track-num">07</span>
+                    <img src="covers/7.jpg" alt="song 7">
+                    <div class="track-info">
+                        <h3>Sakhiyaan</h3>
+                        <p>Salam-e-Ishq</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="6" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="7">
+                    <span class="track-num">08</span>
+                    <img src="covers/8.jpg" alt="song 8">
+                    <div class="track-info">
+                        <h3>Bhula Dena</h3>
+                        <p>Salam-e-Ishq</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="7" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="8">
+                    <span class="track-num">09</span>
+                    <img src="covers/9.jpg" alt="song 9">
+                    <div class="track-info">
+                        <h3>Tumhari Kasam</h3>
+                        <p>Salam-e-Ishq</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="8" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+                <div class="div" data-index="9">
+                    <span class="track-num">10</span>
+                    <img src="covers/10.jpg" alt="song 10">
+                    <div class="track-info">
+                        <h3>Salam-e-Ishq</h3>
+                        <p>Title Track</p>
+                    </div>
+                    <span class="duration">5:34</span>
+                    <i id="9" class="fa-solid fa-circle-play fa-lg btn"></i>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="footer">
-        <input type="range" name="range" id="progress-bar" min="0" max="100" value="0">
-        <div class="icons">
-            <i class="fa-solid fa-backward-step fa-lg prevBtn"></i>
-            <i class="fa-solid fa-play fa-lg" id="playBtn"></i>
-            <i class="fa-solid fa-forward-step fa-lg nextBtn" ></i>
+        <div class="footer-left">
+            <img id="footer-cover" src="covers/1.jpg" alt="cover">
+            <div class="footer-song-name">
+                <p id="footer-title">Select a song</p>
+                <span id="footer-artist">—</span>
+            </div>
         </div>
-        <div class="song-info">
-            <img id="gif" src="images/playing.gif" alt="playing......">Enjoy The Song 
+        <div class="footer-center">
+            <div class="controls">
+                <i class="fa-solid fa-shuffle ctrl-icon" id="shuffleBtn" title="Shuffle"></i>
+                <i class="fa-solid fa-backward-step fa-lg ctrl-icon prevBtn"></i>
+                <button class="play-pause-btn">
+                    <i class="fa-solid fa-play" id="playBtn"></i>
+                </button>
+                <i class="fa-solid fa-forward-step fa-lg ctrl-icon nextBtn"></i>
+                <i class="fa-solid fa-repeat ctrl-icon" id="repeatBtn" title="Repeat"></i>
+            </div>
+            <div class="progress-wrap">
+                <span id="current-time-bar">0:00</span>
+                <input type="range" id="progress-bar" min="0" max="100" value="0">
+                <span id="total-time-bar">0:00</span>
+            </div>
+        </div>
+        <div class="footer-right">
+            <i class="fa-solid fa-volume-high vol-icon"></i>
+            <input type="range" id="footer-volume" min="0" max="100" value="80">
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
-</html>                     
+</html>
